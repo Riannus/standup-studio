@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Standup Studio — scénáře a vtipy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Standup Studio"><span class="brand-mark">S</span><span>standup<span class="brand-dot"> studio</span><small>NÁPADY DO SCÉNY</small></span></a>
+    <div class="scenario-nav"><span class="nav-divider"></span><button class="scenario-new" id="newScenario" title="Nový scénář" aria-label="Nový scénář">＋</button><button class="scenario-edit" id="editScenario" title="Upravit název scénáře" aria-label="Upravit název scénáře">✎</button><select id="scenarioSelect" aria-label="Vybraný scénář"></select></div>
+    <div class="top-actions"><button class="btn theme-toggle" id="themeToggle" type="button" aria-label="Přepnout motiv" title="Přepnout motiv"><span aria-hidden="true">☾</span></button><button class="btn btn-quiet" id="exportText"><span>↓</span> Exportovat text</button><button class="btn btn-primary" id="exportPdf"><span>▤</span> Tisk / PDF</button></div>
+  </header>
+  <main class="workspace">
+    <section class="panel script-panel" aria-label="Scénář">
+      <div class="panel-head script-head">
+        <div class="panel-title"><span class="title-icon script-icon">☷</span><div><h1>Scénář</h1></div></div>
+        <div class="script-meta"><span class="count" id="scriptCount">0 položek</span><details class="script-add-menu"><summary aria-label="Přidat do scénáře">＋</summary><div class="script-menu-options"><button class="tool-button" data-add="group"><span class="tool-symbol group-symbol">▰</span>Blok</button><button class="tool-button" data-add="punchline"><span class="tool-symbol punchline-symbol">✦</span>Punchline</button><button class="tool-button" data-add="bridge"><span class="tool-symbol bridge-symbol">↝</span>Můstek</button><button class="tool-button" data-add="pause"><span class="tool-symbol pause-symbol">Ⅱ</span>Pauza</button><button class="tool-button" data-add="interaction"><span class="tool-symbol interaction-symbol">◉</span>Interakce</button></div></details></div>
+      </div>
+      <div class="script-scroll" id="scriptScroll"><div id="scenario" class="scenario-list"></div><div id="scriptEmpty" class="empty-state"><h2>Scénář je prázdný</h2></div></div>
+      <footer class="panel-foot"><span id="saveStatus" role="status">Připraveno k ukládání</span></footer>
+    </section>
+    <section class="panel jokes-panel" aria-label="Knihovna nápadů">
+      <div class="panel-head jokes-head"><div class="panel-title"><span class="title-icon jokes-icon">✳</span><div><h1>Nápady</h1></div></div><div class="joke-head-actions"><span class="count" id="jokeCount">0 nápadů</span><button type="button" class="btn import-jokes" id="importJokes">Importovat</button><button type="button" class="add-joke" id="addJoke" aria-label="Přidat nápad">＋</button></div></div>
+      <div class="library-controls"><div class="search-row"><label class="search-box"><span>⌕</span><input id="search" placeholder="Hledat v nápadech…"></label><button class="filter-toggle" id="filterToggle" aria-expanded="false"><span class="ui-icon" aria-hidden="true">☷</span>Filtrovat</button></div><div class="filter-panel" id="filterPanel" hidden><label class="filter-field"><span class="sr-only">Hodnocení</span><select id="ratingFilter"><option value="all">Hodnocení</option><option value="3">★★★ Silné</option><option value="2">★★☆ Ujde</option><option value="1">★☆☆ Slabší</option><option value="0">☆☆☆ Bez hodnocení</option></select></label><details class="tag-filter-menu"><summary>Tagy <span>⌄</span></summary><fieldset class="filter-field tag-checks"><legend class="sr-only">Filtrovat tagy</legend><div id="tagOptions"></div><button type="button" id="manageTags" class="manage-tags">Spravovat tagy</button></fieldset></details></div></div>
+      <div id="jokes" class="joke-list"></div><div id="jokesEmpty" class="library-empty"></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="appDialog" class="app-dialog"><form id="appDialogForm"><h2 id="dialogTitle"></h2><div id="dialogContent"></div><div class="dialog-actions"><button type="button" class="btn" id="dialogCancel">Zrušit</button><button type="submit" class="btn btn-primary" id="dialogSave">Uložit</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

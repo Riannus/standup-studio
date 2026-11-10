@@ -1,0 +1,9 @@
+standup.sqlite3
+standup.sqlite3-wal
+standup.sqlite3-shm
+data.json
+__pycache__/
+build/
+dist/
+*.spec
+.idea/
